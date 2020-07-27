@@ -5,9 +5,8 @@ apply plugin: 'kotlin-android-extensions'
 android {
     compileSdkVersion 30
     buildToolsVersion "30.0.1"
-    viewBinding {
-        enabled = true
-    }
+    buildFeatures.viewBinding = true
+
     defaultConfig {
         applicationId "com.new_soft.correspondence"
         minSdkVersion 21
