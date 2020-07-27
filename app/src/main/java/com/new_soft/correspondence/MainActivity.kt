@@ -15,6 +15,8 @@ import com.mikepenz.materialdrawer.model.PrimaryDrawerItem
 import com.mikepenz.materialdrawer.model.ProfileDrawerItem
 import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem
 import com.new_soft.correspondence.databinding.ActivityMainBinding
+import com.new_soft.correspondence.ui.ChatsFragment
+import com.new_soft.correspondence.ui.SettingsFragment
 
 class MainActivity : AppCompatActivity() {
 
@@ -37,6 +39,8 @@ class MainActivity : AppCompatActivity() {
 
     private fun initFunc() {
         setSupportActionBar(mToolbar)
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.dataContainer, ChatsFragment()).commit()
         createHeader()
         createDrawer()
     }
@@ -97,22 +101,24 @@ class MainActivity : AppCompatActivity() {
                     .withIcon(R.drawable.ic_menu_invate),
                 PrimaryDrawerItem().withIdentifier(109)
                     .withIconTintingEnabled(true)
-                    .withName("Вопросы о Correspondence")
+                    .withName("Вопросы о телеграм")
                     .withSelectable(false)
                     .withIcon(R.drawable.ic_menu_help)
+            ).withOnDrawerItemClickListener(object : Drawer.OnDrawerItemClickListener {
+                override fun onItemClick(
+                    view: View?,
+                    position: Int,
+                    drawerItem: IDrawerItem<*>
+                ): Boolean {
+                    when (position) {
+                        7 ->  supportFragmentManager.beginTransaction()
+                            .addToBackStack(null)
+                            .replace(R.id.dataContainer, SettingsFragment()).commit()
+                    }
+                    return false
+                }
+            }).build()
 
-            )
-            .withOnDrawerItemClickListener(object :Drawer.OnDrawerItemClickListener{
-            override fun onItemClick(
-                view: View?,
-                position: Int,
-                drawerItem: IDrawerItem<*>
-            ): Boolean {
-                Toast.makeText(applicationContext,position.toString(),Toast.LENGTH_SHORT).show()
-                return false
-            }
-        })
-            .build()
     }
 
     private fun createHeader() {
@@ -120,8 +126,7 @@ class MainActivity : AppCompatActivity() {
             .withActivity(this)
             .withHeaderBackground(R.drawable.header)
             .addProfiles(
-                ProfileDrawerItem()
-                    .withName("Andrew")
+                ProfileDrawerItem().withName("Andrew")
                     .withEmail("123@mail.ru")
             ).build()
     }
