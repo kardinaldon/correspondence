@@ -1,14 +1,14 @@
 package com.new_soft.correspondence
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.appcompat.widget.Toolbar
 import com.new_soft.correspondence.activities.RegisterActivity
-
 import com.new_soft.correspondence.databinding.ActivityMainBinding
 import com.new_soft.correspondence.ui.fragments.ChatsFragment
 import com.new_soft.correspondence.ui.objects.AppDrawer
+import com.new_soft.correspondence.utilits.replaceActivity
+import com.new_soft.correspondence.utilits.replaceFragment
 
 class MainActivity : AppCompatActivity() {
 
@@ -29,17 +29,12 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initFunc() {
-        if(false) {
+        if (true) {
             setSupportActionBar(mToolbar)
             mAppDrawer.create()
-            supportFragmentManager.beginTransaction()
-                .replace(
-                    R.id.dataContainer,
-                    ChatsFragment()
-                ).commit()
+            replaceFragment(ChatsFragment())
         } else {
-            val intent = Intent (this,RegisterActivity::class.java)
-            startActivity(intent)
+            replaceActivity(RegisterActivity())
         }
     }
 
