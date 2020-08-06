@@ -5,6 +5,7 @@
     android:layout_height="match_parent"
     tools:context=".ui.fragments.ChatsFragment">
 
+    <!-- TODO: Update blank fragment layout -->
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -12,9 +13,9 @@
 
     <TextView
         android:id="@+id/textView"
-        android:textColor="@color/colorBlack"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Чаты" />
+        android:text="Чаты"
+        android:textColor="@color/colorBlack" />
 
 </FrameLayout>

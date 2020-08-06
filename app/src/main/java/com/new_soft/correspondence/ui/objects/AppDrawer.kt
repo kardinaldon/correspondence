@@ -15,12 +15,12 @@ import com.new_soft.correspondence.R
 import com.new_soft.correspondence.ui.fragments.SettingsFragment
 import com.new_soft.correspondence.utilits.replaceFragment
 
-class AppDrawer (val mainActivity: AppCompatActivity, val toolbar: Toolbar) {
+class AppDrawer(val mainActivity: AppCompatActivity, val toolbar: Toolbar) {
 
     private lateinit var mDrawer: Drawer
     private lateinit var mHeader: AccountHeader
 
-    fun create () {
+    fun create() {
         createHeader()
         createDrawer()
     }
@@ -86,7 +86,7 @@ class AppDrawer (val mainActivity: AppCompatActivity, val toolbar: Toolbar) {
                     drawerItem: IDrawerItem<*>
                 ): Boolean {
                     when (position) {
-                        7 ->  mainActivity.replaceFragment(SettingsFragment())
+                        7 -> mainActivity.replaceFragment(SettingsFragment())
                     }
                     return false
                 }
@@ -99,8 +99,8 @@ class AppDrawer (val mainActivity: AppCompatActivity, val toolbar: Toolbar) {
             .withActivity(mainActivity)
             .withHeaderBackground(R.drawable.header)
             .addProfiles(
-                ProfileDrawerItem().withName("Andrew")
-                    .withEmail("123@mail.ru")
+                ProfileDrawerItem().withName("Yura Petrov")
+                    .withEmail("+7911111111")
             ).build()
     }
 }
