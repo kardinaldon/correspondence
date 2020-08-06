@@ -9,6 +9,7 @@ import com.new_soft.correspondence.databinding.ActivityMainBinding
 import com.new_soft.correspondence.ui.fragments.ChatsFragment
 import com.new_soft.correspondence.ui.objects.AppDrawer
 import com.new_soft.correspondence.utilits.AUTH
+import com.new_soft.correspondence.utilits.initFirebase
 import com.new_soft.correspondence.utilits.replaceActivity
 import com.new_soft.correspondence.utilits.replaceFragment
 
@@ -44,6 +45,6 @@ class MainActivity : AppCompatActivity() {
     private fun initFields() {
         mToolbar = mBinding.mainToolbar
         mAppDrawer = AppDrawer(this, mToolbar)
-        AUTH = FirebaseAuth.getInstance()
+        initFirebase()
     }
 }

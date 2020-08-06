@@ -7,6 +7,7 @@ import android.os.Bundle
 import com.new_soft.correspondence.R
 import com.new_soft.correspondence.databinding.ActivityRegisterBinding
 import com.new_soft.correspondence.ui.fragments.EnterPhoneNumberFragment
+import com.new_soft.correspondence.utilits.initFirebase
 import com.new_soft.correspondence.utilits.replaceFragment
 
 class RegisterActivity : AppCompatActivity() {
@@ -18,7 +19,7 @@ class RegisterActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         mBinding = ActivityRegisterBinding.inflate(layoutInflater)
         setContentView(mBinding.root)
-
+        initFirebase()
     }
 
     override fun onStart() {
